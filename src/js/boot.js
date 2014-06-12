@@ -7,6 +7,7 @@
     
     preload: function () {
       this.load.image('preloader', 'assets/preloader.gif');
+      console.log('preload');
     },
 
     create: function () {
@@ -25,6 +26,7 @@
         this.game.stage.scale.pageAlignHorizontally = true;
         this.game.stage.scale.setScreenSize(true);
       }
+      console.log('create');
       this.game.state.start('preloader');
     }
   };
