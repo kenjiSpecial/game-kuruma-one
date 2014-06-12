@@ -1,4 +1,4 @@
-(function () {
+(function (app) {
   'use strict';
 
   function Boot() {}
@@ -31,8 +31,6 @@
     }
   };
 
-  window['kuruma-one'] = window['kuruma-one'] || {};
-  window['kuruma-one'].Boot = Boot;
+  app.components.Boot = Boot;
 
-}());
-
+})((window.__scope || window).ksGame);

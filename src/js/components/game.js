@@ -1,4 +1,4 @@
-(function() {
+(function(app) {
   'use strict';
 
   function Game() {
@@ -25,6 +25,8 @@
       cy = this.world.centerY;
 
       angle = Math.atan2(y - cy, x - cx) * (180 / Math.PI);
+
+      // =============
       this.player.angle = angle;
 
       dx = x - cx;
@@ -41,7 +43,8 @@
 
   };
 
-  window['kuruma-one'] = window['kuruma-one'] || {};
-  window['kuruma-one'].Game = Game;
+  app.components.Game = Game;
 
-}());
+  
+
+})((window.__scope || window).ksGame);

@@ -1,4 +1,4 @@
-(function() {
+(function(app) {
   'use strict';
 
   function Menu() {
@@ -34,7 +34,6 @@
     }
   };
 
-  window['kuruma-one'] = window['kuruma-one'] || {};
-  window['kuruma-one'].Menu = Menu;
+  app.components.Menu = Menu;
 
-}());
+})((window.__scope || window).ksGame);

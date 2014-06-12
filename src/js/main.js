@@ -1,14 +1,29 @@
-window.onload = function () {
-  'use strict';
+(function(scope){
+    scope.ksGame = {
+        // cocomponentstants
+        
+        COcomponentsTANTS : {
+        },
 
-  var game
-    , ns = window['kuruma-one'];
+        // ---------
+        
+        components : {
+        }
+    };
 
-  game = new Phaser.Game(640, 480, Phaser.AUTO, 'kuruma-one-game');
-  game.state.add('boot', ns.Boot);
-  game.state.add('preloader', ns.Preloader);
-  game.state.add('menu', ns.Menu);
-  game.state.add('game', ns.Game);
+    window.onload = function () {
+      'use strict';
 
-  game.state.start('boot');
-};
+      var game
+        , components = scope.ksGame.components;
+
+      game = new Phaser.Game(640, 480, Phaser.AUTO, 'kuruma-one-game');
+      game.state.add('boot', components.Boot);
+      game.state.add('preloader', components.Preloader);
+      game.state.add('menu', components.Menu);
+      game.state.add('game', components.Game);
+
+      game.state.start('boot');
+    };
+
+})(window.__scope || window);

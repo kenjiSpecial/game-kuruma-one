@@ -1,4 +1,4 @@
-(function() {
+(function(app) {
   'use strict';
 
   function Preloader() {
@@ -12,7 +12,7 @@
       this.asset = this.add.sprite(320, 240, 'preloader');
       this.asset.anchor.setTo(0.5, 0.5);
 
-      //this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
+      this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
       this.load.setPreloadSprite(this.asset);
       this.load.image('player', 'assets/player.png');
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
@@ -34,7 +34,6 @@
     }
   };
 
-  window['kuruma-one'] = window['kuruma-one'] || {};
-  window['kuruma-one'].Preloader = Preloader;
+  app.components.Preloader = Preloader;
 
-}());
+})((window.__scope || window).ksGame);
