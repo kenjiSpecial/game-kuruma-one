@@ -7,12 +7,15 @@
   }
 
   Menu.prototype = {
+    background : null,
+    sky        : null,
 
     create: function () {
       var x = this.game.width / 2
         , y = this.game.height / 2;
 
 
+    /**
       this.titleTxt = this.add.bitmapText(x, y, 'minecraftia', 'Example Game' );
       this.titleTxt.align = 'center';
       this.titleTxt.x = this.game.width / 2 - this.titleTxt.textWidth / 2;
@@ -23,6 +26,13 @@
       this.startTxt.x = this.game.width / 2 - this.startTxt.textWidth / 2;
 
       this.input.onDown.add(this.onDown, this);
+      */
+
+     console.log(this);
+
+
+     
+     
     },
 
     update: function () {

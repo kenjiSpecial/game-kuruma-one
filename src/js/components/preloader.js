@@ -1,5 +1,6 @@
 (function(app) {
   'use strict';
+  var CONSTANTS = app.CONSTANTS;
 
   function Preloader() {
     this.asset = null;
@@ -16,10 +17,17 @@
       this.load.setPreloadSprite(this.asset);
       this.load.image('player', 'assets/player.png');
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
+
+      for(var i = 0; i < CONSTANTS.length; i++){
+         var srcID = CONSTANTS[i].id;
+         var srcDir= CONSTANTS[i].dir;
+
+         this.load.image(srcID, srcDir);
+      }
+
     },
 
     create: function () {
-        console.log("create");
       this.asset.cropEnabled = false;
     },
 
