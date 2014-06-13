@@ -1,13 +1,27 @@
 (function (app) {
   'use strict';
+  var skyCol = 0x7AD4FF;
+  var greenCol = 0xC8DD78;
+
 
   function Boot() {}
 
   Boot.prototype = {
-    
-    preload: function () {
-      this.load.image('preloader', 'assets/preloader.gif');
-      console.log('preload');
+    preload : function(){
+      var width  = this.game.width;
+      var height = this.game.height;
+        
+      this.graphics = this.add.graphics( 0, 0 );
+      this.graphics.beginFill(skyCol);
+      this.graphics.moveTo( 0, 0);
+      this.graphics.lineTo( width, 0);
+      this.graphics.lineTo( width, height);
+      this.graphics.lineTo( 0, height);
+      this.graphics.alpha = 1;
+
+      this.graphics.endFill()
+
+
     },
 
     create: function () {
@@ -26,8 +40,8 @@
         this.game.stage.scale.pageAlignHorizontally = true;
         this.game.stage.scale.setScreenSize(true);
       }
-      console.log('create');
-      this.game.state.start('preloader');
+
+     this.game.state.start('preloader');
     }
   };
 

@@ -14,6 +14,7 @@
       this.player = this.add.sprite(x, y, 'player');
       this.player.anchor.setTo(0.5, 0.5);
       this.input.onDown.add(this.onInputDown, this);
+
     },
 
     update: function () {

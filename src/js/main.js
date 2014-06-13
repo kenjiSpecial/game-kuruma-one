@@ -2,7 +2,16 @@
     scope.ksGame = {
         // cocomponentstants
 
-        CONSTANTS :[
+        CONSTANTS : {
+            'STAGE_WIDTH' : 320,
+            'STAGE_HEIGHT': 460,
+
+            'GREEN_PT_Y'  : (460 - 300), 
+        },
+
+        // =================
+
+        manifest :[
             // numbers
             {id : 'numbers/0-zero', dir : 'assets/numbers/0-zero.png'},
             {id : 'numbers/1-one',  dir : 'assets/numbers/1-one.png'},
@@ -24,21 +33,23 @@
 
         // ---------
         components : {
+            game : {}
         }
     };
 
     window.onload = function () {
       'use strict';
+      var CONSTANTS = scope.ksGame.CONSTANTS; 
+      var components = scope.ksGame.components;
+      var game;
 
-      var game
-        , components = scope.ksGame.components;
-
-      game = new Phaser.Game(320, 480, Phaser.AUTO, 'kuruma-one-game');
+      game = new Phaser.Game( CONSTANTS.STAGE_WIDTH, CONSTANTS.STAGE_HEIGHT, Phaser.AUTO, 'kuruma-one-game');
       game.state.add('boot', components.Boot);
       game.state.add('preloader', components.Preloader);
       game.state.add('menu', components.Menu);
       game.state.add('game', components.Game);
 
+      
       game.state.start('boot');
     };
 
